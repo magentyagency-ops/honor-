@@ -1,0 +1,250 @@
+@import 'tailwindcss';
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Saint-Honoré · sistema visual
+   Marfil de fondo, verde profundo como color principal, latón (el dorado del
+   logotipo) como acento y texto antracita. Titulares en serif, datos en sans.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces Variable', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+
+  /* Superficies */
+  --color-ivory: #f6f1e7;
+  --color-paper: #fcfaf5;
+  --color-linen: #f1ebdd;
+  --color-sand: #e9e1d0;
+  --color-line: #e3dbca;
+  --color-line-strong: #cfc5af;
+
+  /* Tinta */
+  --color-ink: #23272a;
+  --color-ink-2: #535856;
+  --color-ink-3: #6d726d;
+  --color-ink-4: #9a9e97;
+
+  /* Verde profundo */
+  --color-forest-950: #0e2219;
+  --color-forest-900: #163126;
+  --color-forest-800: #1b3b2e;
+  --color-forest-700: #214838;
+  --color-forest-600: #2b5b48;
+  --color-forest-500: #3d7a63;
+  --color-forest-400: #6a9c88;
+  --color-forest-300: #9dbdaf;
+  --color-forest-200: #c5d9cf;
+  --color-forest-100: #dfeae4;
+  --color-forest-50: #eef4f0;
+
+  /* Latón: el dorado del logotipo (#C09356) */
+  --color-brass-800: #6f4f1d;
+  --color-brass-700: #8a6428;
+  --color-brass-600: #a67c3b;
+  --color-brass-500: #c09356;
+  --color-brass-400: #cfaa75;
+  --color-brass-300: #dfc49a;
+  --color-brass-200: #ebd9b9;
+  --color-brass-100: #f3e7d0;
+  --color-brass-50: #f9f2e3;
+
+  /* Estados (siempre acompañados de icono y texto) */
+  --color-ok-700: #1e6a49;
+  --color-ok-600: #2a7f59;
+  --color-ok-100: #dcede3;
+  --color-ok-50: #edf6f0;
+  --color-warn-800: #7a4a06;
+  --color-warn-700: #96600c;
+  --color-warn-500: #d2932a;
+  --color-warn-100: #f7e8c6;
+  --color-warn-50: #fbf3df;
+  --color-danger-800: #8a2e1d;
+  --color-danger-700: #a93a25;
+  --color-danger-600: #c04a32;
+  --color-danger-100: #f7ddd4;
+  --color-danger-50: #fceee9;
+  --color-info-700: #2d5d8f;
+  --color-info-100: #dce7f3;
+  --color-info-50: #eef3f9;
+
+  /* Series de gráficos: un color fijo por local (paleta validada para daltonismo) */
+  --color-loc-cv: #197a55;
+  --color-loc-sf: #b97f1f;
+  --color-loc-ce: #3e6db8;
+
+  --shadow-panel: 0 1px 2px rgb(35 39 42 / 0.04);
+  --shadow-pop: 0 14px 36px -10px rgb(14 34 25 / 0.26), 0 2px 8px rgb(14 34 25 / 0.08);
+  --shadow-drawer: -18px 0 48px -16px rgb(14 34 25 / 0.3);
+  --shadow-paper: 0 1px 1px rgb(0 0 0 / 0.06), 0 10px 28px -8px rgb(0 0 0 / 0.28);
+
+  --animate-fade-in: fade-in 180ms ease-out both;
+  --animate-rise: rise 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-slide-in: slide-in 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-pop: pop 160ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-halo: halo 1.8s ease-out infinite;
+  --animate-press: press 520ms ease-out both;
+  --animate-scan: scan 1.5s ease-in-out infinite;
+  --animate-flash: flash 1.6s ease-out both;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slide-in {
+    from { opacity: 0.4; transform: translateX(32px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes pop {
+    from { opacity: 0; transform: scale(0.97) translateY(4px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  @keyframes halo {
+    0% { box-shadow: 0 0 0 0 rgb(192 147 86 / 0.55); }
+    70% { box-shadow: 0 0 0 12px rgb(192 147 86 / 0); }
+    100% { box-shadow: 0 0 0 0 rgb(192 147 86 / 0); }
+  }
+  @keyframes press {
+    0% { transform: scale(1); }
+    35% { transform: scale(0.965); }
+    100% { transform: scale(1); }
+  }
+  @keyframes scan {
+    0% { top: 2%; opacity: 0; }
+    12% { opacity: 1; }
+    88% { opacity: 1; }
+    100% { top: 96%; opacity: 0; }
+  }
+  @keyframes flash {
+    0% { background-color: rgb(192 147 86 / 0.28); }
+    100% { background-color: transparent; }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brass-500);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: var(--color-brass-200);
+  }
+  button,
+  [role='button'],
+  summary,
+  label[for],
+  select {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+  /* Barras de desplazamiento discretas */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line-strong) transparent;
+  }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+
+/* Titulares en serif: Fraunces, con el eje «SOFT» para un trazo cálido y sin florituras. */
+@utility serif {
+  font-family: var(--font-display);
+  font-variation-settings: 'SOFT' 40, 'WONK' 0;
+  font-optical-sizing: auto;
+  letter-spacing: -0.014em;
+}
+
+/* Etiqueta pequeña en versalitas */
+@utility eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Campo de formulario */
+@utility field {
+  height: 2.25rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-line-strong);
+  background-color: #fff;
+  padding: 0 0.75rem;
+  font-size: 14px;
+  color: var(--color-ink);
+  transition: border-color 120ms, box-shadow 120ms;
+  &::placeholder {
+    color: var(--color-ink-4);
+  }
+  &:focus {
+    outline: none;
+    border-color: var(--color-forest-600);
+    box-shadow: 0 0 0 3px rgb(43 91 72 / 0.14);
+  }
+  &:disabled {
+    background-color: var(--color-linen);
+    color: var(--color-ink-3);
+  }
+}
+
+@utility select-chevron {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236d726d' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 12px;
+  padding-right: 2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+/* Espacio que reserva el panel del recorrido guiado, para que nunca tape acciones. */
+:root {
+  --dock-space: 0px;
+}
+
+/* Textura de papel muy sutil para el documento de factura */
+.paper-grain {
+  background-image:
+    radial-gradient(circle at 20% 10%, rgb(0 0 0 / 0.018) 0, transparent 40%),
+    radial-gradient(circle at 80% 90%, rgb(0 0 0 / 0.03) 0, transparent 45%);
+}
+
+/* Fondo del chat de WhatsApp simulado */
+.wa-bg {
+  background-color: #ece5da;
+  background-image: radial-gradient(rgb(22 49 38 / 0.045) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
